@@ -1,0 +1,20 @@
+{
+  "overview": "Aplikasi mobile-first bergaya finansial untuk melihat limit pinjaman dan tagihan, dengan tampilan dark mode premium charcoal dan hijau mint.",
+  "features": [
+    "Header LIMIT PINJAMAN dengan ikon keamanan hijau mint",
+    "Headline besar 'Tenang, semua terkendali.'",
+    "Kartu tagihan Rp 1.200.000 dengan badge TERKONFIRMASI dan status Belum Lunas",
+    "Tombol besar 'Bayar Tagihan Sekarang'",
+    "Layar konfirmasi pembayaran non-transaksional dengan status berhasil",
+    "Tampilan optimal di layar ponsel 360-430px"
+  ],
+  "category": "fintech-showcase",
+  "tags": [
+    "mobile-first",
+    "dark-mode",
+    "fintech",
+    "landing-page",
+    "minimalist"
+  ],
+  "last_updated": "2026-09-21T04:50:03.859Z"
+}

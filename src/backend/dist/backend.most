@@ -1,0 +1,58 @@
+// Version: 4.0.0
+type AccessControlState__201339279 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__230067015<Principal, UserRole__91647283>
+  };
+type BillId__994444545 = Nat;
+type BillState__893254457 = {var bill : Bill__673486011};
+type Bill__673486011 =
+  {
+    amount : Nat;
+    confirmationStatus : Text;
+    id : Nat;
+    paid : Bool;
+    paymentStatus : Text;
+    title : Text;
+    updatedAt : Nat
+  };
+type Bill__951628961 =
+  {
+    amount : Nat;
+    confirmationStatus : Text;
+    id : BillId__994444545;
+    paid : Bool;
+    paymentStatus : Text;
+    title : Text;
+    updatedAt : Timestamp__301639476
+  };
+type Data__44217153<K, V> = {var count : Nat__227979830; kvs : [var ?(K, V)]};
+type Internal__283199666<K, V> =
+  {children : [var ?Node__204828119<K, V>]; data : Data__44217153<K, V>};
+type Leaf__598469445<K, V> = {data : Data__44217153<K, V>};
+type Map__230067015<K, V> = Map__405889023<K, V>;
+type Map__405889023<K, V> = Map__603270868<K, V>;
+type Map__603270868<K, V> =
+  {var root : Node__204828119<K, V>; var size : Nat__227979830};
+type Nat__227979830 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__193197324 =
+  {
+    accessControlState : AccessControlState__201339279;
+    billState : BillState__893254457
+  };
+type Node__204828119<K, V> =
+  {#internal : Internal__283199666<K, V>; #leaf : Leaf__598469445<K, V>};
+type Timestamp__301639476 = Nat;
+type UserRole__91647283 = {#admin; #guest; #user};
+{
+  "20260921_120000" : (_old : {}) -> NewActor__193197324
+}
+actor  {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__230067015<Principal, UserRole__91647283>
+    };
+  stable billState : {var bill : Bill__951628961}
+};

@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Kredit Uang — "Quiet Ledger"
+   Dark-only premium fintech system: charcoal base, single mint accent.
+   Fonts: Space Grotesk (display) / DM Sans (body) / Geist Mono (numeric)
+------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  /* Dark is the default: the app renders dark with no class toggle.
+     .dark is kept identical so a toggle or system class never breaks it. */
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 1.25rem;
+
+    /* Base surfaces — near-black charcoal with a faint cool-green cast */
+    --background: 0.155 0.008 165;
+    --foreground: 0.955 0.006 160;
+    --card: 0.198 0.011 162;
+    --card-foreground: 0.955 0.006 160;
+    --popover: 0.215 0.012 162;
+    --popover-foreground: 0.955 0.006 160;
+
+    /* Mint — vivid but premium. Headline accent, badge, primary CTA */
+    --primary: 0.838 0.196 160;
+    --primary-foreground: 0.168 0.028 162;
+
+    --secondary: 0.245 0.012 162;
+    --secondary-foreground: 0.9 0.006 160;
+    --muted: 0.245 0.012 162;
+    --muted-foreground: 0.635 0.014 160;
+
+    --accent: 0.838 0.196 160;
+    --accent-foreground: 0.168 0.028 162;
+
+    --destructive: 0.62 0.2 25;
+    --destructive-foreground: 0.97 0.006 25;
+
+    --success: 0.78 0.17 158;
+    --success-foreground: 0.168 0.028 162;
+    --warning: 0.8 0.15 85;
+    --warning-foreground: 0.168 0.028 85;
+
+    --border: 0.288 0.014 162;
+    --input: 0.288 0.014 162;
+    --ring: 0.838 0.196 160;
+
+    --chart-1: 0.838 0.196 160;
+    --chart-2: 0.7 0.13 200;
+    --chart-3: 0.78 0.15 130;
+    --chart-4: 0.72 0.12 250;
+    --chart-5: 0.82 0.14 85;
+
+    --sidebar: 0.185 0.01 162;
+    --sidebar-foreground: 0.955 0.006 160;
+    --sidebar-primary: 0.838 0.196 160;
+    --sidebar-primary-foreground: 0.168 0.028 162;
+    --sidebar-accent: 0.245 0.012 162;
+    --sidebar-accent-foreground: 0.9 0.006 160;
+    --sidebar-border: 0.288 0.014 162;
+    --sidebar-ring: 0.838 0.196 160;
+
+    /* Atmosphere & material tokens */
+    --gradient-atmosphere: radial-gradient(
+        120% 80% at 50% -10%,
+        oklch(0.34 0.07 162 / 0.55) 0%,
+        oklch(0.2 0.03 162 / 0.25) 42%,
+        transparent 72%
+      ),
+      radial-gradient(
+        90% 60% at 100% 8%,
+        oklch(0.3 0.06 158 / 0.32) 0%,
+        transparent 60%
+      );
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.87 0.19 162) 0%,
+      oklch(0.8 0.2 156) 100%
+    );
+    --surface-glass: oklch(0.23 0.014 162 / 0.72);
+    --circle-line: oklch(0.88 0.09 162 / 0.14);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Kept in lockstep with :root — dark-only app, no light theme */
+  .dark {
+    --background: 0.155 0.008 165;
+    --foreground: 0.955 0.006 160;
+    --card: 0.198 0.011 162;
+    --card-foreground: 0.955 0.006 160;
+    --popover: 0.215 0.012 162;
+    --popover-foreground: 0.955 0.006 160;
+
+    --primary: 0.838 0.196 160;
+    --primary-foreground: 0.168 0.028 162;
+
+    --secondary: 0.245 0.012 162;
+    --secondary-foreground: 0.9 0.006 160;
+    --muted: 0.245 0.012 162;
+    --muted-foreground: 0.635 0.014 160;
+
+    --accent: 0.838 0.196 160;
+    --accent-foreground: 0.168 0.028 162;
+
+    --destructive: 0.62 0.2 25;
+    --destructive-foreground: 0.97 0.006 25;
+
+    --success: 0.78 0.17 158;
+    --success-foreground: 0.168 0.028 162;
+    --warning: 0.8 0.15 85;
+    --warning-foreground: 0.168 0.028 85;
+
+    --border: 0.288 0.014 162;
+    --input: 0.288 0.014 162;
+    --ring: 0.838 0.196 160;
+
+    --chart-1: 0.838 0.196 160;
+    --chart-2: 0.7 0.13 200;
+    --chart-3: 0.78 0.15 130;
+    --chart-4: 0.72 0.12 250;
+    --chart-5: 0.82 0.14 85;
+
+    --sidebar: 0.185 0.01 162;
+    --sidebar-foreground: 0.955 0.006 160;
+    --sidebar-primary: 0.838 0.196 160;
+    --sidebar-primary-foreground: 0.168 0.028 162;
+    --sidebar-accent: 0.245 0.012 162;
+    --sidebar-accent-foreground: 0.9 0.006 160;
+    --sidebar-border: 0.288 0.014 162;
+    --sidebar-ring: 0.838 0.196 160;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background-image: var(--gradient-atmosphere);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100dvh;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  /* Ambient dark-green radial wash — hero / section backdrops */
+  .bg-atmosphere {
+    background-image: var(--gradient-atmosphere);
+    background-repeat: no-repeat;
+  }
+
+  /* Primary mint CTA fill */
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+
+  /* Thin translucent geometric circle decoration */
+  .ring-circle {
+    border: 1px solid var(--circle-line);
+    border-radius: 9999px;
+  }
+
+  .ring-circle-soft {
+    border: 1px solid oklch(0.88 0.09 162 / 0.08);
+    border-radius: 9999px;
+  }
+
+  /* Premium glass card surface */
+  .surface-glass {
+    background-color: var(--surface-glass);
+    backdrop-filter: blur(18px) saturate(1.15);
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  }
+
+  /* Mint text accent for the headline word */
+  .text-accent-mint {
+    color: oklch(var(--primary));
+  }
+
+  .tracking-brand {
+    letter-spacing: 0.22em;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Layered soft shadow for elevated cards */
+  .shadow-elevated {
+    box-shadow: 0 1px 0 0 oklch(0.9 0.02 160 / 0.05) inset, 0 18px 40px -24px
+      oklch(0.05 0.01 165 / 0.9), 0 2px 8px -4px oklch(0.05 0.01 165 / 0.6);
+  }
+}
